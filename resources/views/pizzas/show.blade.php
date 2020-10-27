@@ -1,14 +1,23 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 
-<div class="relative items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-    <div class="title">Order for {{$pizza->name}}</div>
-    <p>type: {{$pizza->type}}</p>
-    <p>base: {{$pizza->base}}</p>
-    <p>price: {{$pizza->price}}$</p>
-
-    <a href="/pizzas"><- Back to Pizzas List</a>
-</div>
-
+<h1 class="title">Order for {{$pizza->name}}</h1>
+<p>type: {{$pizza->type}}</p>
+<p>base: {{$pizza->base}}</p>
+<p>price: {{$pizza->price}}$</p>
+<p>Toppings:</p>
+<ul>
+    @foreach($pizza->toppings as $topping)
+    <li>{{$topping}}</li>
+    @endforeach
+</ul>
+<form action="{{route('pizzas.destroy', $pizza->id)}}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button>Delete Order</button>
+</form>
+<a href="{{route('pizzas.index')}}">
+    <- Back to Pizzas List</a> 
+    
 @endsection
