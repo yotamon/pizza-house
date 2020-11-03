@@ -4,6 +4,7 @@
     <body>
         @include('layouts.preloader')
         @include('layouts.navbar')
+        @include('layouts.header')
         <div class="content">
         @yield('content')
         </div>

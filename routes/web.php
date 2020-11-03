@@ -14,8 +14,8 @@ use App\Http\Controllers\PizzaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name('home');
 
 Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas.index')->middleware('auth');
 Route::get('/pizzas/create', [PizzaController::class, 'create'])->name('pizzas.create');
@@ -28,4 +28,4 @@ Auth::routes([
     'register' => false
 ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
