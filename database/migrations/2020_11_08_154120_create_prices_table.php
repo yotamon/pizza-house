@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateToppingsTable extends Migration
+class CreatePricesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateToppingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('toppings', function (Blueprint $table) {
+        Schema::create('prices', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('amount');
+            $table->unsignedBigInteger('priceable_id');
+            $table->string('priceable_type');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateToppingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('toppings');
+        Schema::dropIfExists('prices');
     }
 }

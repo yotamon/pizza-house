@@ -1,8 +1,6 @@
 <!-- Header -->
 <header id="header" class="ex-header">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
                 <h1>Dashboard</h1>
                 <div class="card-body">
                     @if (session('status'))
@@ -11,10 +9,8 @@
                         </div>
                     @endif
 
-                    <a href="{{route('pizzas.index')}}" class="btn-solid-lg">VIEW ORDERS</a>
+                    <a href="{{route('pizzas.create')}}" class="btn-solid-lg">CREATE AN ORDER</a>
                 </div>
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
     </div> <!-- end of container -->
 </header> <!-- end of ex-header -->
 <!-- end of header -->

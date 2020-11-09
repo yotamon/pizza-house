@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Pizza;
+use App\Models\Topping;
 
 class PizzaController extends Controller
 {
     public function index() {
-        $pizzas = Pizza::all();
+        $pizzas = Pizza::paginate(3);
     
-        return view('pizzas.index', [
-            'pizzas' => $pizzas,
-            ]);
+        return view('dashboard', ['pizzas' => $pizzas]);
     }
 
     public function show($id) {
@@ -31,7 +30,6 @@ class PizzaController extends Controller
         $pizza->type = request('type');
         $pizza->base = request('base');
         $pizza->toppings = request('toppings');
-        $pizza->price = 20;
 
         $pizza->save();
 
@@ -42,6 +40,6 @@ class PizzaController extends Controller
         $pizza = Pizza::findOrFail($id);
         $pizza->delete();
 
-        return redirect('/pizzas');
+        return redirect('/dashboard');
     }
 }

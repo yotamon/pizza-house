@@ -14,7 +14,7 @@
 	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
 	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
 	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-	<meta property="og:type" content="article" />
+    <meta property="og:type" content="article" />
 
     <!-- Website Title -->
     <title>Pizza House</title>

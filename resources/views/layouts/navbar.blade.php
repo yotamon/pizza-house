@@ -1,11 +1,6 @@
      <!-- Navbar -->
    <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-       <!-- Text Logo - Use this if you don't have a graphic logo -->
-       <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Aria</a> -->
-
-       <!-- Image Logo -->
-       <a class="navbar-brand logo-image" href="{{route('home')}}"><img src="theme/images/pizza-logo.png"
-               alt="alternative"></a>
+       <a class="navbar-brand logo-image" href="{{route('home')}}"><img src="theme/images/pizza-logo.png" alt="alternative"></a>
 
        <!-- Mobile Menu Toggle Button -->
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -51,9 +46,14 @@
                 <a class="nav-link page-scroll" href="#contact">CONTACT</a>
             </li> --}}
                @if (Route::has('login'))
-               <li class="nav-item">
+               <li class="nav-item dropdown">
                    @auth
                    <a href="{{ url('/dashboard') }}" class="nav-link page-scroll">DASHBOARD</a>
+                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('toppings') }}"><span class="item-text">MANAGE TOPPINGS</span></a>
+                    <div class="dropdown-items-divide-hr"></div>
+                    <a class="dropdown-item" href="{{ route('bases') }}"><span class="item-text">MANAGE BASES</span></a>
+                </div>
                    @else
                    <a href="{{ route('login') }}" class="nav-link page-scroll">LOGIN</a>
 
