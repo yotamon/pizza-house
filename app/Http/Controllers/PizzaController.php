@@ -42,4 +42,15 @@ class PizzaController extends Controller
 
         return redirect('/dashboard');
     }
+
+    static public function getPrice($id) {
+        // $pizza = Pizza::findOrFail($id);
+        // dd($pizza->toppings);
+        // // $toppings = $pizza->toppings->sum('price.amount');
+        // $base = $pizza->base->price->amount;
+        // $price = $toppings + $base;
+
+        //Temp
+        return 0;
+    }
 }

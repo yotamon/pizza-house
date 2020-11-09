@@ -89,17 +89,17 @@ class DatabaseSeeder extends Seeder
                 'amount' => 30
             ],
             [
-                'priceable_id' => 1,
+                'priceable_id' => 2,
                 'priceable_type' => 'base',
                 'amount' => 30
             ],
             [
-                'priceable_id' => 1,
+                'priceable_id' => 3,
                 'priceable_type' => 'base',
                 'amount' => 30
             ],
             [
-                'priceable_id' => 1,
+                'priceable_id' => 4,
                 'priceable_type' => 'base',
                 'amount' => 40
             ]

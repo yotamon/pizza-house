@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Base;
 use Illuminate\Http\Request;
+use App\Models\Base;
 
 class BaseController extends Controller
 {

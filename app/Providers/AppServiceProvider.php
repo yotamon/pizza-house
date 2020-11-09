@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Pagination\Paginator;
 use App\Http\View\Composers\ToppingComposer;
 use App\Http\View\Composers\BaseComposer;
+use App\Http\View\Composers\PizzaComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,14 +31,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-
-        // option 1 - every view
-        // View::share('toppings', Topping::orderBy('price')->get());
-
-        // option 2 - specific views
-        // View::composer(['pizzas.create', 'toppings.*'], function ($view) {
-        //     $view->with('toppings', Topping::orderBy('price')->get());
-        // });
         
         // option 3 - Topping Composer class
         View::composer(['pizzas.create', 'toppings.*'], ToppingComposer::class);

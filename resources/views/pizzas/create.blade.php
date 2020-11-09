@@ -22,9 +22,9 @@
         </select><br>
         <label for="base">Choose Base:</label>
         <select id="base" name="base">
-            <option value="thin">Thin</option>
-            <option value="normal">Normal</option>
-            <option value="thick">Thick</option>
+            @foreach($bases as $base)
+            <option value="{{$base->name}}">{{$base->name}} ({{$base->price->amount}}$)</option>
+            @endforeach
         </select><br>
         <fieldset>
             <label>Extra Toppings:</label><br>

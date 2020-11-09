@@ -12,7 +12,7 @@
         <div class="pizza-order-details">
             <p>Type: {{$pizza->type}}</p>
             <p>Base: {{$pizza->base}}</p>
-            <p>Price: {{$pizza->price}}$</p>
+            <p>Price: {{App\Http\Controllers\PizzaController::getPrice($pizza->id)}}$</p>
         </div>
         <form action="{{route('pizzas.destroy',$pizza->id)}}" method="POST">
             @csrf

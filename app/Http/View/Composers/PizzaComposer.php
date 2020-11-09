@@ -3,10 +3,9 @@
 namespace App\Http\View\Composers;
 
 use Illuminate\View\View;
-use Illuminate\Support\Collection;
 use App\Models\Pizza;
 
-class BaseComposer {
+class PizzaComposer {
 
     public function compose(View $view) {
         $pizzas = Pizza::all();
