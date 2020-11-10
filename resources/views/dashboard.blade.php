@@ -11,8 +11,8 @@
         <img class="pizza-thumb" src="/img/pizza.png">
         <div class="pizza-order-details">
             <p>Type: {{$pizza->type}}</p>
-            <p>Base: {{$pizza->base}}</p>
-            <p>Price: {{App\Http\Controllers\PizzaController::getPrice($pizza->id)}}$</p>
+            <p>Base: {{$pizza->base->name}}</p>
+            <p>Price: {{$pizza->fixedPrice()}}$</p>
         </div>
         <form action="{{route('pizzas.destroy',$pizza->id)}}" method="POST">
             @csrf

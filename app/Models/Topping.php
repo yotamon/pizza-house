@@ -11,4 +11,8 @@ class Topping extends Model
     public function price() {
         return $this->morphOne(Price::class, 'priceable');
     }
+
+    public function pizzas() {
+        return $this->belongsToMany(Pizza::class);
+    }
 }

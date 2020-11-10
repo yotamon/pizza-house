@@ -21,16 +21,16 @@
             <option value="bianka">Bianka</option>
         </select><br>
         <label for="base">Choose Base:</label>
-        <select id="base" name="base">
+        <select id="base" name="base_id">
             @foreach($bases as $base)
-            <option value="{{$base->name}}">{{$base->name}} ({{$base->price->amount}}$)</option>
+            <option value="{{$base->id}}">{{$base->name}} ({{$base->price->amount}}$)</option>
             @endforeach
         </select><br>
         <fieldset>
             <label>Extra Toppings:</label><br>
             <div class="toppings-select">
                 @foreach($toppings as $topping)
-                <div class="topping"><input type="checkbox" name="toppings[]" value="{{$topping->name}}"><span>{{$topping->name}}</span><span class="topping-price">({{$topping->price->amount}}$)</span></div>
+                <div class="topping"><input type="checkbox" name="toppings[]" value="{{$topping->id}}"><span>{{$topping->name}}</span><span class="topping-price">({{$topping->price->amount}}$)</span></div>
                 @endforeach
             </div>
         </fieldset>

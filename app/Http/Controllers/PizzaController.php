@@ -24,33 +24,27 @@ class PizzaController extends Controller
     }
 
     public function store() {
+        // return request()->all();
         $pizza = new Pizza();
 
         $pizza->name = request('name');
         $pizza->type = request('type');
-        $pizza->base = request('base');
-        $pizza->toppings = request('toppings');
+        $pizza->base_id = request('base_id');
+
 
         $pizza->save();
+ 
+        $pizza->toppings()->attach(request('toppings'));
+
 
         return redirect('/')->with('msg', 'Thank you for ordering from us!');
     }
 
     public function destroy($id) {
         $pizza = Pizza::findOrFail($id);
+        $pizza->toppings()->sync([]);
         $pizza->delete();
 
         return redirect('/dashboard');
-    }
-
-    static public function getPrice($id) {
-        // $pizza = Pizza::findOrFail($id);
-        // dd($pizza->toppings);
-        // // $toppings = $pizza->toppings->sum('price.amount');
-        // $base = $pizza->base->price->amount;
-        // $price = $toppings + $base;
-
-        //Temp
-        return 0;
     }
 }

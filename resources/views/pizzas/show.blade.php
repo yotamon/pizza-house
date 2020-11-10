@@ -7,14 +7,14 @@
 
         <div class="card-body">
             <p>type: {{$pizza->type}}</p>
-            <p>base: {{$pizza->base}}</p>
-            <p>price: {{$pizza->price}}$</p>
+            <p>base: {{$pizza->base->name}}</p>
             <p>Toppings:</p>
             <ul>
                 @foreach($pizza->toppings as $topping)
-                <li>{{$topping}}</li>
+                <li>{{$topping->name}}</li>
                 @endforeach
             </ul>
+            <p>price: {{$pizza->fixedPrice()}}$</p>
             <form action="{{route('pizzas.destroy', $pizza->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
